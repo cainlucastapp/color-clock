@@ -9,19 +9,20 @@ function App() {
 
   //Every second update currentTime with a new Date object
   useEffect(() => {
+    //render new time ever 1 second
     const timer = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
 
-    //Re-render and cleanup
+    //cleanup
     return () => clearInterval(timer);
   }, []); 
   
-  //return clock
+  //clock html
   return (
     <>
       <p className="clock">
-        {//Clock
+        {//Clock format month day, year, hour, minutes, seconds, am / pm
           format(currentTime, 'MMMM dd, yyyy h:mm:ss a')
         }
       </p>
@@ -29,5 +30,5 @@ function App() {
   )
 }
 
-//Export
+//Export function
 export default App
